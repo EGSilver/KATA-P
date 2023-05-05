@@ -12,7 +12,7 @@ public class ValidatePassword {
             errorMessages.add("Password must be at least 8 characters");
         }
 
-        Pattern digitPattern = Pattern.compile("(\\d)");
+        Pattern digitPattern = Pattern.compile("(\\d)"); // Look for digits
         Matcher digitMatcher = digitPattern.matcher(password);
         int digitCount = 0;
         while (digitMatcher.find()) {
@@ -22,13 +22,13 @@ public class ValidatePassword {
             errorMessages.add("The password must contain at least 2 numbers");
         }
 
-        Pattern capitalLetterPattern = Pattern.compile("([A-Z])");
+        Pattern capitalLetterPattern = Pattern.compile("([A-Z])"); // Look for capital letters
         Matcher capitalLetterMatcher = capitalLetterPattern.matcher(password);
         if (!capitalLetterMatcher.find()) {
             errorMessages.add("Password must contain at least one capital letter");
         }
 
-        Pattern specialCharacterPattern = Pattern.compile("([!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])");
+        Pattern specialCharacterPattern = Pattern.compile("([!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])"); // Look for special characters
         Matcher specialCharacterMatcher = specialCharacterPattern.matcher(password);
         if (!specialCharacterMatcher.find()) {
             errorMessages.add("Password must contain at least one special character");
